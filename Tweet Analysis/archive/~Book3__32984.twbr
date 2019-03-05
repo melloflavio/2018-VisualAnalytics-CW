@@ -1,0 +1,600 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20182.18.1009.2120                               -->
+<workbook source-build='2018.2.3 (20182.18.1009.2120)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='London_division.shp+ (Multiple Connections)' inline='true' name='federated.0a2rgrw0qk8jcm14z6h6y12c853v' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='London_division' name='ogrdirect.1w3tqxf05ic9dn115360q0jc2pbh'>
+            <connection class='ogrdirect' directory='C:/Users/flavi/Documents/Study/City-UniLondon/Term_1/INM433-VisualAnalytics/Coursework/Individual/Tweet Analysis/Dataset/Processed' filename='London_division.shp' ogr-grid-shift-folder='C:\Program Files\Tableau\Tableau 2018.2\local\proj4' password='' server='' tablename='' />
+          </named-connection>
+          <named-connection caption='TouristSpots' name='ogrdirect.0s949ic09fo01v12uecev1vrh3mo'>
+            <connection class='ogrdirect' directory='C:/Users/flavi/Documents/Study/City-UniLondon/Term_1/INM433-VisualAnalytics/Coursework/Individual/Tweet Analysis/Dataset/Processed' filename='TouristSpots.shp' ogr-grid-shift-folder='C:\Program Files\Tableau\Tableau 2018.2\local\proj4' password='' server='' tablename='' />
+          </named-connection>
+          <named-connection caption='NamesCnt' name='textscan.15wfsvr00rehtd1ccljwd1e8j8l0'>
+            <connection class='textscan' directory='C:/Users/flavi/Documents/Study/City-UniLondon/Term_1/INM433-VisualAnalytics/Coursework/Individual/Tweet Analysis/Dataset/Processed' filename='NamesCnt.csv' password='' server='' />
+          </named-connection>
+          <named-connection caption='MainTransportHubs' name='ogrdirect.119mwjj0hd1qbx13agyrs0fopop1'>
+            <connection class='ogrdirect' directory='C:/Users/flavi/Documents/Study/City-UniLondon/Term_1/INM433-VisualAnalytics/Coursework/Individual/Tweet Analysis/Dataset/Processed' filename='MainTransportHubs.shp' ogr-grid-shift-folder='C:\Program Files\Tableau\Tableau 2018.2\local\proj4' password='' server='' tablename='' />
+          </named-connection>
+        </named-connections>
+        <relation join='left' type='join'>
+          <clause type='join'>
+            <expression op='Intersects'>
+              <expression op='[London_division.shp].[Geometry]' />
+              <expression op='[MainTransportHubs.shp].[Geometry]' />
+            </expression>
+          </clause>
+          <relation join='left' type='join'>
+            <clause type='join'>
+              <expression op='='>
+                <expression op='[London_division.shp].[name]' />
+                <expression op='[NamesCnt.csv].[name]' />
+              </expression>
+            </clause>
+            <relation join='left' type='join'>
+              <clause type='join'>
+                <expression op='Intersects'>
+                  <expression op='[London_division.shp].[Geometry]' />
+                  <expression op='[TouristSpots.shp].[Geometry]' />
+                </expression>
+              </clause>
+              <relation connection='ogrdirect.1w3tqxf05ic9dn115360q0jc2pbh' name='London_division.shp' table='[London_division.shp]' type='table'>
+                <columns>
+                  <column datatype='integer' name='id' ordinal='0' />
+                  <column datatype='string' name='name' ordinal='1' />
+                  <column datatype='real' name='area' ordinal='2' />
+                  <column datatype='spatial' name='Geometry' ordinal='3' />
+                </columns>
+              </relation>
+              <relation connection='ogrdirect.0s949ic09fo01v12uecev1vrh3mo' name='TouristSpots.shp' table='[TouristSpots.shp]' type='table'>
+                <columns>
+                  <column datatype='string' name='LocationNa' ordinal='0' />
+                  <column datatype='integer' name='Ranking' ordinal='1' />
+                  <column datatype='spatial' name='Geometry' ordinal='2' />
+                </columns>
+              </relation>
+            </relation>
+            <relation connection='textscan.15wfsvr00rehtd1ccljwd1e8j8l0' name='NamesCnt.csv' table='[NamesCnt#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+                <column datatype='string' name='name' ordinal='0' />
+                <column datatype='integer' name='Distinct count of LocationNa' ordinal='1' />
+              </columns>
+            </relation>
+          </relation>
+          <relation connection='ogrdirect.119mwjj0hd1qbx13agyrs0fopop1' name='MainTransportHubs.shp' table='[MainTransportHubs.shp]' type='table'>
+            <columns>
+              <column datatype='string' name='LocationNa' ordinal='0' />
+              <column datatype='string' name='Type' ordinal='1' />
+              <column datatype='spatial' name='Geometry' ordinal='2' />
+            </columns>
+          </relation>
+        </relation>
+        <cols>
+          <map key='[Distinct count of LocationNa]' value='[NamesCnt.csv].[Distinct count of LocationNa]' />
+          <map key='[Geometry (MainTransportHubs.shp)]' value='[MainTransportHubs.shp].[Geometry]' />
+          <map key='[Geometry (TouristSpots.shp)]' value='[TouristSpots.shp].[Geometry]' />
+          <map key='[Geometry]' value='[London_division.shp].[Geometry]' />
+          <map key='[LocationNa (MainTransportHubs.shp)]' value='[MainTransportHubs.shp].[LocationNa]' />
+          <map key='[LocationNa]' value='[TouristSpots.shp].[LocationNa]' />
+          <map key='[Ranking]' value='[TouristSpots.shp].[Ranking]' />
+          <map key='[Type]' value='[MainTransportHubs.shp].[Type]' />
+          <map key='[area]' value='[London_division.shp].[area]' />
+          <map key='[id]' value='[London_division.shp].[id]' />
+          <map key='[name (NamesCnt.csv)]' value='[NamesCnt.csv].[name]' />
+          <map key='[name]' value='[London_division.shp].[name]' />
+        </cols>
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>id</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[id]</local-name>
+            <parent-name>[London_division.shp]</parent-name>
+            <remote-alias>id</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>name</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[name]</local-name>
+            <parent-name>[London_division.shp]</parent-name>
+            <remote-alias>name</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>area</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[area]</local-name>
+            <parent-name>[London_division.shp]</parent-name>
+            <remote-alias>area</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Geometry</remote-name>
+            <remote-type>8</remote-type>
+            <local-name>[Geometry]</local-name>
+            <parent-name>[London_division.shp]</parent-name>
+            <remote-alias>Geometry</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>spatial</local-type>
+            <aggregation>Collect</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>LocationNa</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[LocationNa]</local-name>
+            <parent-name>[TouristSpots.shp]</parent-name>
+            <remote-alias>LocationNa</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Ranking</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Ranking]</local-name>
+            <parent-name>[TouristSpots.shp]</parent-name>
+            <remote-alias>Ranking</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Geometry</remote-name>
+            <remote-type>8</remote-type>
+            <local-name>[Geometry (TouristSpots.shp)]</local-name>
+            <parent-name>[TouristSpots.shp]</parent-name>
+            <remote-alias>Geometry</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>spatial</local-type>
+            <aggregation>Collect</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[NamesCnt.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>name</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[name (NamesCnt.csv)]</local-name>
+            <parent-name>[NamesCnt.csv]</parent-name>
+            <remote-alias>name</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Distinct count of LocationNa</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Distinct count of LocationNa]</local-name>
+            <parent-name>[NamesCnt.csv]</parent-name>
+            <remote-alias>Distinct count of LocationNa</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>LocationNa</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[LocationNa (MainTransportHubs.shp)]</local-name>
+            <parent-name>[MainTransportHubs.shp]</parent-name>
+            <remote-alias>LocationNa</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Type</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Type]</local-name>
+            <parent-name>[MainTransportHubs.shp]</parent-name>
+            <remote-alias>Type</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Geometry</remote-name>
+            <remote-type>8</remote-type>
+            <local-name>[Geometry (MainTransportHubs.shp)]</local-name>
+            <parent-name>[MainTransportHubs.shp]</parent-name>
+            <remote-alias>Geometry</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>spatial</local-type>
+            <aggregation>Collect</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Calculation3' datatype='integer' hidden='true' name='[Calculation_1248341523847933958]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='COUNT([name] = [name])' />
+      </column>
+      <column aggregation='CountD' datatype='string' default-role='measure' default-type='quantitative' name='[LocationNa]' role='dimension' type='nominal' />
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column caption='Id' datatype='integer' name='[id]' role='dimension' type='ordinal' />
+      <column aggregation='Max' datatype='string' name='[name]' role='dimension' type='nominal' />
+      <group name='[Set 1]' name-style='unqualified' user:ui-builder='lasso-group'>
+        <groupfilter function='union'>
+          <groupfilter function='member' level='[name]' member='&quot;Balham&quot;' />
+          <groupfilter function='member' level='[name]' member='&quot;Beckton&quot;' />
+          <groupfilter function='member' level='[name]' member='&quot;Bermondsey&quot;' />
+          <groupfilter function='member' level='[name]' member='&quot;Big Ben&quot;' />
+          <groupfilter function='member' level='[name]' member='&quot;Blackfriars&quot;' />
+          <groupfilter function='member' level='[name]' member='&quot;Blackwall&quot;' />
+          <groupfilter function='member' level='[name]' member='&quot;Borough Market&quot;' />
+          <groupfilter function='member' level='[name]' member='&quot;Britannia&quot;' />
+          <groupfilter function='member' level='[name]' member='&quot;Chalk Farm&quot;' />
+          <groupfilter function='member' level='[name]' member='&quot;Covent Garden&quot;' />
+          <groupfilter function='member' level='[name]' member='&quot;Downing Street&quot;' />
+          <groupfilter function='member' level='[name]' member='&quot;Green Park&quot;' />
+          <groupfilter function='member' level='[name]' member='&quot;Greenwich Park&quot;' />
+          <groupfilter function='member' level='[name]' member='&quot;Hyde Park east&quot;' />
+          <groupfilter function='member' level='[name]' member='&quot;Knightsbridge&quot;' />
+          <groupfilter function='member' level='[name]' member='&quot;London Bridge&quot;' />
+          <groupfilter function='member' level='[name]' member='&quot;London Eye&quot;' />
+          <groupfilter function='member' level='[name]' member='&quot;Natural History Museum&quot;' />
+          <groupfilter function='member' level='[name]' member='&quot;Old Change&quot;' />
+          <groupfilter function='member' level='[name]' member='&quot;Parliament Square&quot;' />
+          <groupfilter function='member' level='[name]' member='&quot;St Andrew Undershaft&quot;' />
+          <groupfilter function='member' level='[name]' member='&quot;St. Jame&apos;s Park&quot;' />
+          <groupfilter function='member' level='[name]' member='&quot;Tower of London&quot;' />
+          <groupfilter function='member' level='[name]' member='&quot;Trafalgar Square&quot;' />
+          <groupfilter function='member' level='[name]' member='&quot;Victoria and Albert Museum&quot;' />
+          <groupfilter function='member' level='[name]' member='&quot;West End of London&quot;' />
+        </groupfilter>
+      </group>
+      <layout dim-ordering='alphabetic' dim-percentage='0.313673' group-percentage='0.136729' measure-ordering='alphabetic' measure-percentage='0.549598' rowDisplayCount='29' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+    </datasource>
+  </datasources>
+  <mapsources>
+    <mapsource name='Tableau' />
+  </mapsources>
+  <worksheets>
+    <worksheet name='NamesCnt'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='London_division.shp+ (Multiple Connections)' name='federated.0a2rgrw0qk8jcm14z6h6y12c853v' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0a2rgrw0qk8jcm14z6h6y12c853v'>
+            <column aggregation='CountD' datatype='string' default-role='measure' default-type='quantitative' name='[LocationNa]' role='dimension' type='nominal' />
+            <column-instance column='[LocationNa]' derivation='CountD' name='[ctd:LocationNa:qk]' pivot='key' type='quantitative' />
+            <column aggregation='Max' datatype='string' name='[name]' role='dimension' type='nominal' />
+            <column-instance column='[name]' derivation='None' name='[none:name:nk]' pivot='key' type='nominal' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows>[federated.0a2rgrw0qk8jcm14z6h6y12c853v].[ctd:LocationNa:qk]</rows>
+        <cols>[federated.0a2rgrw0qk8jcm14z6h6y12c853v].[none:name:nk]</cols>
+      </table>
+    </worksheet>
+    <worksheet name='Sheet 1'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='London_division.shp+ (Multiple Connections)' name='federated.0a2rgrw0qk8jcm14z6h6y12c853v' />
+          </datasources>
+          <mapsources>
+            <mapsource name='Tableau' />
+          </mapsources>
+          <datasource-dependencies datasource='federated.0a2rgrw0qk8jcm14z6h6y12c853v'>
+            <column datatype='integer' name='[Distinct count of LocationNa]' role='measure' type='quantitative' />
+            <column datatype='spatial' name='[Geometry (TouristSpots.shp)]' role='measure' type='nominal' />
+            <column datatype='spatial' name='[Geometry]' role='measure' type='nominal' />
+            <column aggregation='CountD' datatype='string' default-role='measure' default-type='quantitative' name='[LocationNa]' role='dimension' type='nominal' />
+            <column-instance column='[Geometry (TouristSpots.shp)]' derivation='Collect' name='[clct:Geometry (TouristSpots.shp):nk]' pivot='key' type='nominal' />
+            <column-instance column='[Geometry]' derivation='Collect' name='[clct:Geometry:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Distinct count of LocationNa]' derivation='None' name='[none:Distinct count of LocationNa:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[LocationNa]' derivation='None' name='[none:LocationNa:nk]' pivot='key' type='nominal' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.0a2rgrw0qk8jcm14z6h6y12c853v].[Longitude (generated)]' field-type='quantitative' max='83.836000143182901' min='-27685.843563098253' projection='EPSG:3857' range-type='fixed' scope='cols' type='space' />
+            <encoding attr='space' class='0' field='[federated.0a2rgrw0qk8jcm14z6h6y12c853v].[Latitude (generated)]' field-type='quantitative' max='6721627.7638547653' min='6704322.9832820315' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
+            <encoding attr='space' class='1' field='[federated.0a2rgrw0qk8jcm14z6h6y12c853v].[Latitude (generated)]' field-type='quantitative' fold='true' max='6721627.7638547653' min='6704322.9832820315' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
+          </style-rule>
+          <style-rule element='map-layer'>
+            <format attr='enabled' id='tab_base' value='true' />
+            <format attr='enabled' id='um_lcover' value='true' />
+            <format attr='enabled' id='tab_coastline' value='false' />
+            <format attr='enabled' id='pp2_line' value='false' />
+            <format attr='enabled' id='light_adm0_bnd' value='false' />
+            <format attr='enabled' id='light_adm0_lbl' value='false' />
+            <format attr='enabled' id='um_adm0_bnd' value='true' />
+            <format attr='enabled' id='um_adm0_lbl' value='true' />
+            <format attr='enabled' id='light_pp2_statebounds' value='false' />
+            <format attr='enabled' id='light_pp2_statelabels' value='false' />
+            <format attr='enabled' id='pp2_adminlabels' value='false' />
+            <format attr='enabled' id='pp2_statebounds' value='true' />
+            <format attr='enabled' id='pp2_statelabels' value='true' />
+            <format attr='enabled' id='countybounds' value='false' />
+            <format attr='enabled' id='countylabels' value='false' />
+            <format attr='enabled' id='zipbounds' value='false' />
+            <format attr='enabled' id='ziplabels' value='false' />
+            <format attr='enabled' id='tab_areabounds' value='false' />
+            <format attr='enabled' id='tab_arealabels' value='false' />
+            <format attr='enabled' id='tab_msabounds' value='false' />
+            <format attr='enabled' id='tab_msalabels' value='false' />
+          </style-rule>
+          <style-rule element='map'>
+            <format attr='washout' value='0.0' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <lod column='[federated.0a2rgrw0qk8jcm14z6h6y12c853v].[none:LocationNa:nk]' />
+            </encodings>
+          </pane>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.0a2rgrw0qk8jcm14z6h6y12c853v].[Latitude (generated)]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <lod column='[federated.0a2rgrw0qk8jcm14z6h6y12c853v].[clct:Geometry:nk]' />
+              <lod column='[federated.0a2rgrw0qk8jcm14z6h6y12c853v].[none:LocationNa:nk]' />
+              <color column='[federated.0a2rgrw0qk8jcm14z6h6y12c853v].[none:Distinct count of LocationNa:qk]' />
+              <geometry column='[federated.0a2rgrw0qk8jcm14z6h6y12c853v].[clct:Geometry:nk]' />
+            </encodings>
+          </pane>
+          <pane id='3' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.0a2rgrw0qk8jcm14z6h6y12c853v].[Latitude (generated)]' y-index='1'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <lod column='[federated.0a2rgrw0qk8jcm14z6h6y12c853v].[clct:Geometry (TouristSpots.shp):nk]' />
+              <lod column='[federated.0a2rgrw0qk8jcm14z6h6y12c853v].[none:LocationNa:nk]' />
+              <geometry column='[federated.0a2rgrw0qk8jcm14z6h6y12c853v].[clct:Geometry (TouristSpots.shp):nk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-color' value='#000000' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>([federated.0a2rgrw0qk8jcm14z6h6y12c853v].[Latitude (generated)] + [federated.0a2rgrw0qk8jcm14z6h6y12c853v].[Latitude (generated)])</rows>
+        <cols>[federated.0a2rgrw0qk8jcm14z6h6y12c853v].[Longitude (generated)]</cols>
+      </table>
+    </worksheet>
+    <worksheet name='Sheet 1 (2)'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='London_division.shp+ (Multiple Connections)' name='federated.0a2rgrw0qk8jcm14z6h6y12c853v' />
+          </datasources>
+          <mapsources>
+            <mapsource name='Tableau' />
+          </mapsources>
+          <datasource-dependencies datasource='federated.0a2rgrw0qk8jcm14z6h6y12c853v'>
+            <column datatype='integer' name='[Distinct count of LocationNa]' role='measure' type='quantitative' />
+            <column datatype='spatial' name='[Geometry (MainTransportHubs.shp)]' role='measure' type='nominal' />
+            <column datatype='spatial' name='[Geometry]' role='measure' type='nominal' />
+            <column-instance column='[Geometry (MainTransportHubs.shp)]' derivation='Collect' name='[clct:Geometry (MainTransportHubs.shp):nk]' pivot='key' type='nominal' />
+            <column-instance column='[Geometry]' derivation='Collect' name='[clct:Geometry:nk]' pivot='key' type='nominal' />
+            <column aggregation='Max' datatype='string' name='[name]' role='dimension' type='nominal' />
+            <column-instance column='[Distinct count of LocationNa]' derivation='None' name='[none:Distinct count of LocationNa:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[name]' derivation='None' name='[none:name:nk]' pivot='key' type='nominal' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.0a2rgrw0qk8jcm14z6h6y12c853v].[Longitude (generated)]' field-type='quantitative' max='-5374.7337873122106' min='-25024.153586927823' projection='EPSG:3857' range-type='fixed' scope='cols' type='space' />
+            <encoding attr='space' class='0' field='[federated.0a2rgrw0qk8jcm14z6h6y12c853v].[Latitude (generated)]' field-type='quantitative' max='6717392.537797912' min='6705144.5123144947' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
+            <encoding attr='space' class='1' field='[federated.0a2rgrw0qk8jcm14z6h6y12c853v].[Latitude (generated)]' field-type='quantitative' fold='true' max='6717392.537797912' min='6705144.5123144947' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
+          </style-rule>
+          <style-rule element='map-layer'>
+            <format attr='enabled' id='tab_base' value='true' />
+            <format attr='enabled' id='um_lcover' value='true' />
+            <format attr='enabled' id='tab_coastline' value='false' />
+            <format attr='enabled' id='pp2_line' value='false' />
+            <format attr='enabled' id='light_adm0_bnd' value='false' />
+            <format attr='enabled' id='light_adm0_lbl' value='false' />
+            <format attr='enabled' id='um_adm0_bnd' value='true' />
+            <format attr='enabled' id='um_adm0_lbl' value='true' />
+            <format attr='enabled' id='light_pp2_statebounds' value='false' />
+            <format attr='enabled' id='light_pp2_statelabels' value='false' />
+            <format attr='enabled' id='pp2_adminlabels' value='false' />
+            <format attr='enabled' id='pp2_statebounds' value='true' />
+            <format attr='enabled' id='pp2_statelabels' value='true' />
+            <format attr='enabled' id='countybounds' value='false' />
+            <format attr='enabled' id='countylabels' value='false' />
+            <format attr='enabled' id='zipbounds' value='false' />
+            <format attr='enabled' id='ziplabels' value='false' />
+            <format attr='enabled' id='tab_areabounds' value='false' />
+            <format attr='enabled' id='tab_arealabels' value='false' />
+            <format attr='enabled' id='tab_msabounds' value='false' />
+            <format attr='enabled' id='tab_msalabels' value='false' />
+          </style-rule>
+          <style-rule element='map'>
+            <format attr='washout' value='0.0' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <lod column='[federated.0a2rgrw0qk8jcm14z6h6y12c853v].[none:name:nk]' />
+            </encodings>
+          </pane>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.0a2rgrw0qk8jcm14z6h6y12c853v].[Latitude (generated)]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <lod column='[federated.0a2rgrw0qk8jcm14z6h6y12c853v].[clct:Geometry:nk]' />
+              <lod column='[federated.0a2rgrw0qk8jcm14z6h6y12c853v].[none:name:nk]' />
+              <color column='[federated.0a2rgrw0qk8jcm14z6h6y12c853v].[none:Distinct count of LocationNa:qk]' />
+              <geometry column='[federated.0a2rgrw0qk8jcm14z6h6y12c853v].[clct:Geometry:nk]' />
+            </encodings>
+          </pane>
+          <pane id='3' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.0a2rgrw0qk8jcm14z6h6y12c853v].[Latitude (generated)]' y-index='1'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <lod column='[federated.0a2rgrw0qk8jcm14z6h6y12c853v].[clct:Geometry (MainTransportHubs.shp):nk]' />
+              <lod column='[federated.0a2rgrw0qk8jcm14z6h6y12c853v].[none:name:nk]' />
+              <geometry column='[federated.0a2rgrw0qk8jcm14z6h6y12c853v].[clct:Geometry (MainTransportHubs.shp):nk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-color' value='#000000' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>([federated.0a2rgrw0qk8jcm14z6h6y12c853v].[Latitude (generated)] + [federated.0a2rgrw0qk8jcm14z6h6y12c853v].[Latitude (generated)])</rows>
+        <cols>[federated.0a2rgrw0qk8jcm14z6h6y12c853v].[Longitude (generated)]</cols>
+      </table>
+    </worksheet>
+  </worksheets>
+  <windows source-height='37'>
+    <window class='worksheet' name='Sheet 1'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='2' param='[federated.0a2rgrw0qk8jcm14z6h6y12c853v].[none:Distinct count of LocationNa:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+    </window>
+    <window class='worksheet' maximized='true' name='Sheet 1 (2)'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='2' param='[federated.0a2rgrw0qk8jcm14z6h6y12c853v].[none:Distinct count of LocationNa:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+    </window>
+    <window class='worksheet' name='NamesCnt'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+    </window>
+  </windows>
+</workbook>

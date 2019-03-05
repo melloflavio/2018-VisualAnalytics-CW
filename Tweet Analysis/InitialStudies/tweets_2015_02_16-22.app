@@ -1,0 +1,31 @@
+APPL_NAME "Tweets 16-22 February 2015"
+TERR_NAME "London"
+USER_UNIT "m"
+HAS_GEO_COORD +
+APPL_BGCOLOR (192,192,192)
+LAYER "tweets_2015_02_16-22.csv" "Tweets 16-22/02/2015"
+FORMAT "ASCII"
+DELIMITER ","
+FIELD_NAMES_IN_ROW 1
+ID_FIELD "id"
+NAME_FIELD "Name"
+X_FIELD "X"
+Y_FIELD "Y"
+<TimeReference>
+meaning="OCCURRED_AT"
+"MESSAGEDATE"="dd/mm/yyyy hh:tt:ss"
+attr_name="MESSAGEDATE"
+attr_scheme="dd/mm/yyyy hh:tt:ss"
+keep_original_columns=no
+</TimeReference>
+TYPE POINT
+DRAWING +
+ALLOW_SPATIAL_FILTER +
+TRANSPARENCY 96
+BORDERS +
+BORDERW 1
+HLIGHTEDW 3
+SELECTEDW 3
+BORDERCOLOR (1,18,242)
+BACKGROUND  (192,192,192)
+HATCH_STYLE 0

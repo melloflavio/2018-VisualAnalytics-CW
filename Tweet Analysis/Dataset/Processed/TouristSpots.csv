@@ -1,0 +1,66 @@
+Id,LocationName,Ranking,Latitude,Longitude,String Coords
+1,National Gallery,1,51.5089,-0.1283,"51.5089° N, 0.1283° W"
+2,Churchill War Rooms,2,51.5022,-0.1294,"51.5022° N, 0.1294° W"
+3,British Museum,3,51.5194,-0.127,"51.5194° N, 0.1270° W"
+4,St James Park,4,51.5025,-0.1348,"51.5025° N, 0.1348° W"
+5,V&A - Victoria and Albert Museum,5,51.4966,-0.1722,"51.4966° N, 0.1722° W"
+6,Hyde Park,6,51.5073,-0.1657,"51.5073° N, 0.1657° W"
+7,Houses of Parliament,7,51.4995,-0.1248,"51.4995° N, 0.1248° W"
+8,Tower Bridge,8,51.5055,-0.0754,"51.5055° N, 0.0754° W"
+9,Tower of London,9,51.5081,-0.0759,"51.5081° N, 0.0759° W"
+10,Borough Market,10,51.5054,-0.0911,"51.5054° N, 0.0911° W"
+11,Westminster Abbey,11,51.4993,-0.1273,"51.4993° N, 0.1273° W"
+12,Sky Garden,12,51.5112,-0.0835,"51.5112° N, 0.0835° W"
+13,National History Museum,13,51.4967,-0.1764,"51.4967° N, 0.1764° W"
+14,St. Pauls Cathedral,14,51.5138,-0.0984,"51.5138° N, 0.0984° W"
+15,Camden Market,15,51.5415,-0.1457,"51.5415° N, 0.1457° W"
+16,Covent Garden,16,51.5118,-0.1232,"51.5118° N, 0.1232° W"
+17,The Shard,17,51.5045,-0.0865,"51.5045° N, 0.0865° W"
+18,Underground,18,,,
+19,Buckingham Palace,19,51.5014,-0.1419,"51.5014° N, 0.1419° W"
+20,London Eye,20,51.5033,-0.1195,"51.5033° N, 0.1195° W"
+21,Big Ben,21,51.5007,-0.1246,"51.5007° N, 0.1246° W"
+22,Hayman's Distillery,22,51.4451,-0.1438,"51.4451° N, 0.1438° W"
+23,Brick Lane Music Hall,23,51.5027,0.0428,"51.5027° N, 0.0428° E"
+24,Kinky Boots at Adelphi Theatre,24,51.5101,-0.1229,"51.5101° N, 0.1229° W"
+25,Harrods,25,51.4992,-0.163,"51.4992° N, 0.1630° W"
+26,Up at the O2,26,51.5013,0.0038,"51.5013° N, 0.0038° E"
+27,School Of Rock The Musical,27,51.5153,-0.1226,"51.5153° N, 0.1226° W"
+28,City of London Distillery,28,51.5139,-0.105,"51.5139° N, 0.1050° W"
+29,Wallace Collection,29,51.5173,-0.153,"51.5173° N, 0.1530° W"
+30,Old Royal Naval College,30,51.4832,-0.0059,"51.4832° N, 0.0059° W"
+31,The All England Lawn Tennis Club,,,,
+32,The Charterhouse,,,,
+33,Wigmore Hall,,,,
+34,Regent's Park,,,,
+35,The Courtauld Gallery,,,,
+36,Highgate Cemetery,,,,
+37,Hampstead Heath,,,,
+38,BAPS Shri Swaminarayan Mandir,,,,
+39,Wimbledon,,,,
+40,Fourpure Brewing Co.,,,,
+41,Sipsmith Distillery,,,,
+42,Bomber Command Memorial,,,,
+43,St. Dunstan in the East,,,,
+44,Kensington Gardens,,,,
+45,New London Theatre,,,,
+46,Greenwich Park,,,,
+47,Wimbledon Lawn Tennis Museum,,,,
+48,Westminster,,,,
+49,Two Temple Place,,,,
+50,Royal Opera House,,,,
+51,Holland Park,,,,
+52,Gods Own Junkyard,,,,
+53,Greenwich,,,,
+54,Chelsea FC Stadium Tour & Museum,,,,
+55,Emirates Stadium Tour and Museum,,,,
+56,Primrose Hill,,,,
+57,Freemasons' Hall,,,,
+58,The Museum of the Order of St John,,,,
+59,Apollo Theatre,,,,
+60,Prince of Wales Theatre,,,,
+61,Battersea Park,,,,
+62,British Library,,,,
+63,Museum of London Docklands,,,,
+64,Chelsea Physic Garden,,,,
+65,Temple Church,,,,

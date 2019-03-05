@@ -1,0 +1,42 @@
+Investigar museum late opening hours
+Investigar Tottenahm - Unique visitors => Indicador que tem mais turistas (unicos) do que residentes pq os residentes repetem/turistas são novos
+
+Analysis:
+
+    General:
+        Visitor activity is more concentrated in the city centre - Vast majority of "Visitor winners" is in Zone 1. In general towards West end, more so than Toward City of London
+        Parliament Square a resident Island surrounded by places with increased touristic activity
+
+    - Weekday x Weekend:
+
+        Increase of visitor acticity(margin) in the Weekend
+            Some regions effectively Flip in the weekend:
+                Blackwall (O2?)
+                Tower of London
+                City Hall
+            Touristic => More touristic
+                Westminster Abbey
+                London Eye
+                Big Ben
+            Resident => Less Resident
+                City of London
+                Moorgate Railway
+        Lack of regions with clear increased Resident margin in the weekend
+
+
+    Weekday Times:
+        V&A flips towards visitors only during afternoon (Opens 10-17:45)
+        Tower of London flips towards night
+        Bloomsbury counter flips (increased resident acticity during afternoon => UCL?)
+        Blackwall flips towards night time
+
+
+    Weekend Times:
+        Blackwall flips towards Tourist earlier (Shows at o2 start earlier?)
+
+
+
+Business x Visits:
+    Education: Outlier -> Id 39 - Hyde Park West
+    LocalFlavor - Correlation towards increasing turist attraction
+
